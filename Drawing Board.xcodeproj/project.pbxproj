@@ -13,6 +13,11 @@
 		FFB5F58E28DB660F007F98D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58C28DB660F007F98D6 /* Main.storyboard */; };
 		FFB5F59028DB6610007F98D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58F28DB6610007F98D6 /* Assets.xcassets */; };
 		FFB5F59328DB6610007F98D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F59128DB6610007F98D6 /* LaunchScreen.storyboard */; };
+		FFB5F59B28DCDFB6007F98D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */; };
+		FFB5F59D28DCDFED007F98D6 /* DrawingBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */; };
+		FFB5F5A028DCDFFD007F98D6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */; };
+		FFB5F5A728DD0A96007F98D6 /* BrusheSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5A628DD0A96007F98D6 /* BrusheSelectorView.swift */; };
+		FFB5F5AB28DD0ADC007F98D6 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		FFB5F58F28DB6610007F98D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFB5F59228DB6610007F98D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFB5F59428DB6610007F98D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoardViewController.swift; sourceTree = "<group>"; };
+		FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FFB5F5A628DD0A96007F98D6 /* BrusheSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrusheSelectorView.swift; sourceTree = "<group>"; };
+		FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,84 @@
 		FFB5F58528DB660F007F98D6 /* Drawing Board */ = {
 			isa = PBXGroup;
 			children = (
-				FFB5F58628DB660F007F98D6 /* AppDelegate.swift */,
-				FFB5F58828DB660F007F98D6 /* SceneDelegate.swift */,
-				FFB5F58A28DB660F007F98D6 /* ViewController.swift */,
-				FFB5F58C28DB660F007F98D6 /* Main.storyboard */,
 				FFB5F58F28DB6610007F98D6 /* Assets.xcassets */,
-				FFB5F59128DB6610007F98D6 /* LaunchScreen.storyboard */,
 				FFB5F59428DB6610007F98D6 /* Info.plist */,
+				FFB5F5A828DD0AC6007F98D6 /* Library */,
+				FFB5F5A228DCF1B7007F98D6 /* App */,
+				FFB5F59E28DCDFF6007F98D6 /* Extension */,
+				FFB5F5A328DCF1C0007F98D6 /* Screens */,
 			);
 			path = "Drawing Board";
+			sourceTree = "<group>";
+		};
+		FFB5F59E28DCDFF6007F98D6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FFB5F5A128DCF1AF007F98D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */,
+				FFB5F5A628DD0A96007F98D6 /* BrusheSelectorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FFB5F5A228DCF1B7007F98D6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F58628DB660F007F98D6 /* AppDelegate.swift */,
+				FFB5F58828DB660F007F98D6 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FFB5F5A328DCF1C0007F98D6 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F5A528DD0A21007F98D6 /* Drawing Board */,
+				FFB5F5A428DCF1D6007F98D6 /* Launch */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FFB5F5A428DCF1D6007F98D6 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F59128DB6610007F98D6 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		FFB5F5A528DD0A21007F98D6 /* Drawing Board */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F58A28DB660F007F98D6 /* ViewController.swift */,
+				FFB5F58C28DB660F007F98D6 /* Main.storyboard */,
+				FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */,
+			);
+			path = "Drawing Board";
+			sourceTree = "<group>";
+		};
+		FFB5F5A828DD0AC6007F98D6 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F5A928DD0AD0007F98D6 /* Models */,
+				FFB5F5A128DCF1AF007F98D6 /* Views */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		FFB5F5A928DD0AD0007F98D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +218,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFB5F58B28DB660F007F98D6 /* ViewController.swift in Sources */,
+				FFB5F5A728DD0A96007F98D6 /* BrusheSelectorView.swift in Sources */,
+				FFB5F5AB28DD0ADC007F98D6 /* Brush.swift in Sources */,
+				FFB5F5A028DCDFFD007F98D6 /* UIView+Extension.swift in Sources */,
 				FFB5F58728DB660F007F98D6 /* AppDelegate.swift in Sources */,
+				FFB5F59D28DCDFED007F98D6 /* DrawingBoardViewController.swift in Sources */,
+				FFB5F59B28DCDFB6007F98D6 /* CanvasView.swift in Sources */,
 				FFB5F58928DB660F007F98D6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
