@@ -30,8 +30,7 @@ class DrawingBoardViewController: UIViewController {
         [
             brushSelectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             brushSelectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            brushSelectionView.bottomAnchor
-            
+            brushSelectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             brushSelectionView.heightAnchor.constraint(equalToConstant: 50)
         ].activate()
         

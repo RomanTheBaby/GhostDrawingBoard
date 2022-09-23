@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FFB5F58728DB660F007F98D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F58628DB660F007F98D6 /* AppDelegate.swift */; };
 		FFB5F58928DB660F007F98D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F58828DB660F007F98D6 /* SceneDelegate.swift */; };
-		FFB5F58E28DB660F007F98D6 /* DrawingBoardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58C28DB660F007F98D6 /* DrawingBoardViewController.storyboard */; };
+		FFB5F58E28DB660F007F98D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58C28DB660F007F98D6 /* Main.storyboard */; };
 		FFB5F59028DB6610007F98D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58F28DB6610007F98D6 /* Assets.xcassets */; };
 		FFB5F59328DB6610007F98D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F59128DB6610007F98D6 /* LaunchScreen.storyboard */; };
 		FFB5F59B28DCDFB6007F98D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */; };
@@ -28,7 +28,7 @@
 		FFB5F58328DB660F007F98D6 /* Drawing Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drawing Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB5F58628DB660F007F98D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFB5F58828DB660F007F98D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FFB5F58D28DB660F007F98D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DrawingBoardViewController.storyboard; sourceTree = "<group>"; };
+		FFB5F58D28DB660F007F98D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FFB5F58F28DB6610007F98D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFB5F59228DB6610007F98D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFB5F59428DB6610007F98D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		FFB5F5A528DD0A21007F98D6 /* Drawing Board */ = {
 			isa = PBXGroup;
 			children = (
-				FFB5F58C28DB660F007F98D6 /* DrawingBoardViewController.storyboard */,
+				FFB5F58C28DB660F007F98D6 /* Main.storyboard */,
 				FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */,
 			);
 			path = "Drawing Board";
@@ -259,7 +259,7 @@
 				FFB5F59328DB6610007F98D6 /* LaunchScreen.storyboard in Resources */,
 				FFB5F5BA28DD15E2007F98D6 /* BrushSelectionCell.xib in Resources */,
 				FFB5F59028DB6610007F98D6 /* Assets.xcassets in Resources */,
-				FFB5F58E28DB660F007F98D6 /* DrawingBoardViewController.storyboard in Resources */,
+				FFB5F58E28DB660F007F98D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,12 +287,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FFB5F58C28DB660F007F98D6 /* DrawingBoardViewController.storyboard */ = {
+		FFB5F58C28DB660F007F98D6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FFB5F58D28DB660F007F98D6 /* Base */,
 			);
-			name = DrawingBoardViewController.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		FFB5F59128DB6610007F98D6 /* LaunchScreen.storyboard */ = {
