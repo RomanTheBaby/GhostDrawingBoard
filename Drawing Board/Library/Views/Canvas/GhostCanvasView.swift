@@ -57,7 +57,13 @@ class GhostCanvasView: UIView {
     // MARK: - UIResponder
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        linesToDraw.append([])
+        guard let touch = touches.first else {
+            return
+        }
+        
+        let touchLocation = touch.location(in: self)
+        
+        linesToDraw.append([touchLocation])
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -69,7 +75,6 @@ class GhostCanvasView: UIView {
             return
         }
         
-        
         let touchLocation = touch.location(in: self)
 
         lastLine.append(touchLocation)
@@ -77,10 +82,6 @@ class GhostCanvasView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard brush.drawDelay > 0 else {
-            return
-        }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + brush.drawDelay, execute: { [weak self] in
             self?.drawPoints(self?.linesToDraw.first ?? [])
             self?.linesToDraw.removeFirst()
@@ -94,15 +95,23 @@ class GhostCanvasView: UIView {
             return
         }
         
-        let path = UIBezierPath()
+        let path: UIBezierPath
         
-        for (index, point) in points.enumerated() {
-            if index == 0 {
-                path.move(to: point)
-                continue
-            }
+        if points.count == 1 {
+            let radius = brush.width
+            let point = points[0]
+            let rect = CGRect(x: point.x - (radius / 2), y: point.y - (radius / 2), width: radius, height: radius)
+            path = UIBezierPath(ovalIn: rect)
+        } else {
+            path = UIBezierPath()
+            for (index, point) in points.enumerated() {
+                if index == 0 {
+                    path.move(to: point)
+                    continue
+                }
 
-            path.addLine(to: point)
+                path.addLine(to: point)
+            }
         }
         
         let shapeLayer = CAShapeLayer()
@@ -114,10 +123,12 @@ class GhostCanvasView: UIView {
         layer.addSublayer(shapeLayer)
         layers.append(shapeLayer)
         
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
-        animation.duration = brush.drawTime
-        shapeLayer.add(animation, forKey: "drawing_animation")
+        if points.count > 1 {
+            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            animation.fromValue = 0
+            animation.duration = brush.drawTime
+            shapeLayer.add(animation, forKey: "drawing_animation")
+        }
     }
     
     
