@@ -15,7 +15,7 @@
 		FFB5F59B28DCDFB6007F98D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */; };
 		FFB5F59D28DCDFED007F98D6 /* DrawingBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */; };
 		FFB5F5A028DCDFFD007F98D6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */; };
-		FFB5F5A728DD0A96007F98D6 /* BrushSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5A628DD0A96007F98D6 /* BrushSelectorView.swift */; };
+		FFB5F5A728DD0A96007F98D6 /* InstrumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5A628DD0A96007F98D6 /* InstrumentsView.swift */; };
 		FFB5F5AB28DD0ADC007F98D6 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */; };
 		FFB5F5B328DD12DB007F98D6 /* BrushSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */; };
 		FFB5F5B628DD15AC007F98D6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B528DD15AC007F98D6 /* Reusable.swift */; };
@@ -34,7 +34,7 @@
 		FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoardViewController.swift; sourceTree = "<group>"; };
 		FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		FFB5F5A628DD0A96007F98D6 /* BrushSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushSelectorView.swift; sourceTree = "<group>"; };
+		FFB5F5A628DD0A96007F98D6 /* InstrumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsView.swift; sourceTree = "<group>"; };
 		FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
 		FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushSelectionCell.swift; sourceTree = "<group>"; };
 		FFB5F5B528DD15AC007F98D6 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FFB5F5B028DD12CB007F98D6 /* Cell */,
-				FFB5F5A628DD0A96007F98D6 /* BrushSelectorView.swift */,
+				FFB5F5A628DD0A96007F98D6 /* InstrumentsView.swift */,
 			);
 			path = "Brush Selector ";
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 			files = (
 				FFB5F5B328DD12DB007F98D6 /* BrushSelectionCell.swift in Sources */,
 				FFB5F5BC28DD1668007F98D6 /* UICollectionView+Extension.swift in Sources */,
-				FFB5F5A728DD0A96007F98D6 /* BrushSelectorView.swift in Sources */,
+				FFB5F5A728DD0A96007F98D6 /* InstrumentsView.swift in Sources */,
 				FFB5F5AB28DD0ADC007F98D6 /* Brush.swift in Sources */,
 				FFB5F5B828DD15BE007F98D6 /* NibLoadable.swift in Sources */,
 				FFB5F5B628DD15AC007F98D6 /* Reusable.swift in Sources */,

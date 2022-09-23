@@ -35,61 +35,14 @@ class CanvasView: UIView {
         brush = newBrush
     }
     
-    
-    // MARK: - Draw
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    func clear() {
         
-        /*
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return
-        }
-        
-        for line in lines {
-            for (index, point) in line.enumerated() {
-                if index == 0 {
-                    context.move(to: point)
-                    continue
-                }
-
-                context.addLine(to: point)
-            }
-        }
-        
-        context.setLineCap(.round)
-        context.setBlendMode(.normal)
-        context.setLineWidth(brush.width)
-        context.setStrokeColor(brush.color.cgColor)
-        
-        context.strokePath()
-        
-        if brush.drawDelay == 0 {
-            context.strokePath()
-        }
-         */
-        
-        let path = UIBezierPath()
-        
-        for points in lines {
-            for (index, point) in points.enumerated() {
-                if index == 0 {
-                    path.move(to: point)
-                    continue
-                }
-                
-                path.addLine(to: point)
-            }
-        }
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.fillColor = nil
-        shapeLayer.strokeColor = brush.color.cgColor
-        shapeLayer.lineWidth = brush.width
-        shapeLayer.path = path.cgPath
-        
-        layer.addSublayer(shapeLayer)
     }
+    
+    func undoLast() {
+        
+    }
+    
     
     // MARK: - UIResponder
     
@@ -156,7 +109,7 @@ class CanvasView: UIView {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
         animation.duration = brush.drawTime
-        shapeLayer.add(animation, forKey: "MyAnimation")
+        shapeLayer.add(animation, forKey: "drawing_animation")
     }
     
     

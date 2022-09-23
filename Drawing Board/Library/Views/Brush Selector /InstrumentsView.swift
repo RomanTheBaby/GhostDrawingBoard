@@ -8,8 +8,13 @@
 import UIKit
 
 
-class BrushSelectorView: UIView, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    enum ActionType {
+        case changedBrush(Brush)
+        case clear
+        case undo
+    }
     
     // MARK: - Constants
     
@@ -53,8 +58,32 @@ class BrushSelectorView: UIView, UICollectionViewDelegate, UICollectionViewDeleg
         return dataSource
     }()
     
+    private lazy var undoButton = {
+        let undoButton = UIButton()
+        undoButton.setImage(UIImage(systemName: "arrow.turn.up.left"), for: .normal)
+        undoButton.addTarget(self, action: #selector(handleUndoAction), for: .touchUpInside)
+        
+        return undoButton
+    }()
+    
+    private lazy var clearButton = {
+        let clearButton = UIButton()
+        clearButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        clearButton.addTarget(self, action: #selector(handleClearAction), for: .touchUpInside)
+        
+        return clearButton
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [undoButton, clearButton])
+        stackView.distribution = .fillEqually
+        stackView.spacing = 8
+        
+        return stackView
+    }()
+    
     private let brushes: [Brush]
-    private let selectorCallback: ((Brush) -> Void)?
+    private let actionHandler: ((ActionType) -> Void)?
     
     
     // MARK: - Init
@@ -63,12 +92,23 @@ class BrushSelectorView: UIView, UICollectionViewDelegate, UICollectionViewDeleg
         frame: CGRect = .zero,
         brushes: [Brush],
         initiallySelectedBrush: Brush? = nil,
-        selectorCallback: ((Brush) -> Void)?
+        actionHandler: ((ActionType) -> Void)? = nil
     ) {
         self.brushes = brushes
-        self.selectorCallback = selectorCallback
+        self.actionHandler = actionHandler
         
         super.init(frame: frame)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stackView)
+        
+        [
+            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            stackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            stackView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.3),
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+        ].activate()
         
         setupCollectionView(initiallySelectedBrush: initiallySelectedBrush)
     }
@@ -90,7 +130,14 @@ class BrushSelectorView: UIView, UICollectionViewDelegate, UICollectionViewDeleg
             forCellWithReuseIdentifier: BrushSelectionCell.reuseIdentifier
         )
         
-        embed(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(collectionView)
+        [
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 8),
+        ].activate()
         
         setupInitialSnapshot()
         
@@ -108,6 +155,18 @@ class BrushSelectorView: UIView, UICollectionViewDelegate, UICollectionViewDeleg
         dataSource.apply(snapshot)
     }
     
+    
+    // MARK: - Actions Handling
+    
+    @objc private func handleClearAction() {
+        actionHandler?(.clear)
+    }
+    
+    @objc private func handleUndoAction() {
+        actionHandler?(.undo)
+    }
+    
+    
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -115,7 +174,7 @@ class BrushSelectorView: UIView, UICollectionViewDelegate, UICollectionViewDeleg
             return
         }
         
-        selectorCallback?(selectedBrush)
+        actionHandler?(.changedBrush(selectedBrush))
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout

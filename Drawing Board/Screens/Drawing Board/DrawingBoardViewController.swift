@@ -25,21 +25,32 @@ class DrawingBoardViewController: UIViewController {
         canvasView.backgroundColor = .white
         view.backgroundColor = .systemGray5
         
-        let brushSelectionView = BrushSelectorView(
+        let instrumentsView = InstrumentsView(
             brushes: allBrushes,
             initiallySelectedBrush: initialBrush
-        ) { [weak canvasView] brush in
-            canvasView?.updateBrush(brush)
+        ) { [weak canvasView] actionType in
+            
+            switch actionType {
+            case .changedBrush(let brush):
+                canvasView?.updateBrush(brush)
+                
+            case .undo:
+                canvasView?.undoLast()
+                
+            case .clear:
+                canvasView?.clear()
+            }
+            
         }
         
-        brushSelectionView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(brushSelectionView)
+        instrumentsView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(instrumentsView)
         
         [
-            brushSelectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            brushSelectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            brushSelectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            brushSelectionView.heightAnchor.constraint(equalToConstant: 50)
+            instrumentsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            instrumentsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            instrumentsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            instrumentsView.heightAnchor.constraint(equalToConstant: 50)
         ].activate()
         
         canvasView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +59,7 @@ class DrawingBoardViewController: UIViewController {
             canvasView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
             canvasView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             canvasView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            canvasView.bottomAnchor.constraint(greaterThanOrEqualTo: brushSelectionView.topAnchor, constant: -16)
+            canvasView.bottomAnchor.constraint(greaterThanOrEqualTo: instrumentsView.topAnchor, constant: -16)
         ].activate()
         
         canvasView.layer.shadowRadius = 5
