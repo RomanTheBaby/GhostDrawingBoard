@@ -155,7 +155,7 @@
 		FFB5F5AC28DD1201007F98D6 /* Brush Selector  */ = {
 			isa = PBXGroup;
 			children = (
-				FFB5F5B028DD12CB007F98D6 /* Cell */,
+				FFB5F5B028DD12CB007F98D6 /* Cells */,
 				FFB5F5A628DD0A96007F98D6 /* InstrumentsView.swift */,
 			);
 			path = "Brush Selector ";
@@ -169,12 +169,12 @@
 			path = Canvas;
 			sourceTree = "<group>";
 		};
-		FFB5F5B028DD12CB007F98D6 /* Cell */ = {
+		FFB5F5B028DD12CB007F98D6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FFB5F5B428DD1594007F98D6 /* Protocols */ = {

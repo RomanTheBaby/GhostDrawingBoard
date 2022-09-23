@@ -19,9 +19,15 @@ class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegat
     // MARK: - Constants
     
     private enum Constants {
-        enum ListLayout {
+        enum BrushListLayout {
             static let itemsSpacing: CGFloat = 8
             static let contentInsets = UIEdgeInsets(horizontal: 16, vertical: 4)
+        }
+        
+        enum ActionsLayout {
+            static let actionsSpacing: CGFloat = 8
+            /// Portion on space all action will take from all view
+            static let actionsSpacePortion: CGFloat = 0.3
         }
     }
     
@@ -36,8 +42,8 @@ class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegat
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = Constants.ListLayout.itemsSpacing
-        layout.sectionInset = Constants.ListLayout.contentInsets
+        layout.minimumLineSpacing = Constants.BrushListLayout.itemsSpacing
+        layout.sectionInset = Constants.BrushListLayout.contentInsets
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.allowsMultipleSelection = false
@@ -74,10 +80,10 @@ class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegat
         return clearButton
     }()
     
-    private lazy var stackView: UIStackView = {
+    private lazy var actionsStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [undoButton, clearButton])
         stackView.distribution = .fillEqually
-        stackView.spacing = 8
+        stackView.spacing = Constants.ActionsLayout.actionsSpacing
         
         return stackView
     }()
@@ -99,17 +105,7 @@ class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegat
         
         super.init(frame: frame)
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stackView)
-        
-        [
-            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            stackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            stackView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.3),
-            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-        ].activate()
-        
+        setupActionsStackView()
         setupCollectionView(initiallySelectedBrush: initiallySelectedBrush)
     }
     
@@ -120,10 +116,24 @@ class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegat
     
     // MARK: - Private Methods
     
+    private func setupActionsStackView() {
+        actionsStackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(actionsStackView)
+        
+        [
+            actionsStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            actionsStackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            actionsStackView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor,
+                                                    multiplier: Constants.ActionsLayout.actionsSpacePortion),
+            actionsStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            actionsStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+        ].activate()
+    }
+    
     private func setupCollectionView(initiallySelectedBrush: Brush?) {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = backgroundColor
         
         collectionView.register(
             BrushSelectionCell.self,
@@ -136,7 +146,7 @@ class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegat
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: actionsStackView.leadingAnchor),
         ].activate()
         
         setupInitialSnapshot()
@@ -180,7 +190,7 @@ class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegat
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSide = collectionView.bounds.height - Constants.ListLayout.contentInsets.vertical
+        let itemSide = collectionView.bounds.height - Constants.BrushListLayout.contentInsets.vertical
         return CGSize.init(width: itemSide, height: itemSide)
     }
     
