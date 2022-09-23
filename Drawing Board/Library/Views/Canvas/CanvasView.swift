@@ -155,7 +155,7 @@ class CanvasView: UIView {
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
-        animation.duration = brush.drawDelay
+        animation.duration = brush.drawTime
         shapeLayer.add(animation, forKey: "MyAnimation")
     }
     

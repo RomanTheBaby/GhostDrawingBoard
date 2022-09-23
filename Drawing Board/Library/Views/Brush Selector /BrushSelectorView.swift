@@ -56,13 +56,18 @@ class BrushSelectorView: UIView, UICollectionViewDelegate {
     
     // MARK: - Init
     
-    init(frame: CGRect = .zero, brushes: [Brush], selectorCallback: ((Brush) -> Void)?) {
+    init(
+        frame: CGRect = .zero,
+        brushes: [Brush],
+        initiallySelectedBrush: Brush? = nil,
+        selectorCallback: ((Brush) -> Void)?
+    ) {
         self.brushes = brushes
         self.selectorCallback = selectorCallback
         
         super.init(frame: frame)
         
-        setupCollectionView()
+        setupCollectionView(initiallySelectedBrush: initiallySelectedBrush)
     }
     
     required init?(coder: NSCoder) {
@@ -72,7 +77,7 @@ class BrushSelectorView: UIView, UICollectionViewDelegate {
     
     // MARK: - Private Methods
     
-    private func setupCollectionView() {
+    private func setupCollectionView(initiallySelectedBrush: Brush?) {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
@@ -81,6 +86,11 @@ class BrushSelectorView: UIView, UICollectionViewDelegate {
         embed(collectionView)
         
         setupInitialSnapshot()
+        
+        if let initiallySelectedBrush = initiallySelectedBrush,
+           let initialBrushIndex = dataSource.indexPath(for: initiallySelectedBrush) {
+            collectionView.selectItem(at: initialBrushIndex, animated: false, scrollPosition: .bottom)
+        }
     }
     
     private func createLayout() -> UICollectionViewLayout {

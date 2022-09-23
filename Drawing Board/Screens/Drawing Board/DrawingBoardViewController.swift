@@ -15,12 +15,19 @@ class DrawingBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let canvasView = CanvasView(brush: .init(color: .red, width: 5, drawDelay: 1))
+        let allBrushes = [Brush].all
+        
+        let initialBrush = allBrushes[0]
+        
+        let canvasView = CanvasView(brush: initialBrush)
         // No matter the color scheme, drawing is best on white canvas I guess?
         canvasView.backgroundColor = .white
         view.backgroundColor = .systemGray5
         
-        let brushSelectionView = BrushSelectorView(brushes: .all) { [weak canvasView] brush in
+        let brushSelectionView = BrushSelectorView(
+            brushes: allBrushes,
+            initiallySelectedBrush: initialBrush
+        ) { [weak canvasView] brush in
             canvasView?.updateBrush(brush)
         }
         
