@@ -15,6 +15,7 @@ class CanvasView: UIView {
     
     private(set) var brush: Brush
     private var lines: [[CGPoint]] = []
+    private var layers: [CALayer] = []
     
     
     // MARK: - Init
@@ -36,11 +37,19 @@ class CanvasView: UIView {
     }
     
     func clear() {
+        layers.forEach { layer in
+            layer.removeFromSuperlayer()
+        }
         
+        layers = []
     }
     
     func undoLast() {
+        guard let lastLayer = layers.popLast() else {
+            return
+        }
         
+        lastLayer.removeFromSuperlayer()
     }
     
     
@@ -105,6 +114,7 @@ class CanvasView: UIView {
         shapeLayer.path = path.cgPath
         
         layer.addSublayer(shapeLayer)
+        layers.append(shapeLayer)
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
