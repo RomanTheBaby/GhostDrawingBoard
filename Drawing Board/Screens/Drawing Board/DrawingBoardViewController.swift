@@ -20,7 +20,7 @@ class DrawingBoardViewController: UIViewController {
         
         let initialBrush = allBrushes[0]
         
-        let canvasView = CanvasView(brush: initialBrush)
+        let canvasView = GhostCanvasView(brush: initialBrush)
         // No matter the color scheme, drawing is best on white canvas I guess?
         canvasView.backgroundColor = .white
         view.backgroundColor = .systemGray5

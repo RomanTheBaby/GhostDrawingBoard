@@ -1,5 +1,5 @@
 //
-//  CanvasView.swift
+//  GhostCanvasView.swift
 //  Drawing Board
 //
 //  Created by Alina Biesiedina on 2022-09-22.
@@ -8,13 +8,14 @@
 import UIKit
 
 
-class CanvasView: UIView {
+/// This canvas view supports only drawing with delay
+class GhostCanvasView: UIView {
     
     
     // MARK: - Properties
     
     private(set) var brush: Brush
-    private var lines: [[CGPoint]] = []
+    private var linesToDraw: [[CGPoint]] = []
     private var layers: [CALayer] = []
     
     
@@ -56,7 +57,7 @@ class CanvasView: UIView {
     // MARK: - UIResponder
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lines.append([])
+        linesToDraw.append([])
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -64,7 +65,7 @@ class CanvasView: UIView {
             return
         }
         
-        guard var lastLine = lines.popLast() else {
+        guard var lastLine = linesToDraw.popLast() else {
             return
         }
         
@@ -72,11 +73,7 @@ class CanvasView: UIView {
         let touchLocation = touch.location(in: self)
 
         lastLine.append(touchLocation)
-        lines.append(lastLine)
-        
-        if brush.drawDelay == 0 {
-            setNeedsDisplay()
-        }
+        linesToDraw.append(lastLine)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -85,7 +82,8 @@ class CanvasView: UIView {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + brush.drawDelay, execute: { [weak self] in
-            self?.drawPoints(self?.lines.last ?? [])
+            self?.drawPoints(self?.linesToDraw.first ?? [])
+            self?.linesToDraw.removeFirst()
         })
     }
     

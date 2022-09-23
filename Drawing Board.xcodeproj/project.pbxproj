@@ -12,7 +12,7 @@
 		FFB5F58E28DB660F007F98D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58C28DB660F007F98D6 /* Main.storyboard */; };
 		FFB5F59028DB6610007F98D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58F28DB6610007F98D6 /* Assets.xcassets */; };
 		FFB5F59328DB6610007F98D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F59128DB6610007F98D6 /* LaunchScreen.storyboard */; };
-		FFB5F59B28DCDFB6007F98D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */; };
+		FFB5F59B28DCDFB6007F98D6 /* GhostCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59A28DCDFB6007F98D6 /* GhostCanvasView.swift */; };
 		FFB5F59D28DCDFED007F98D6 /* DrawingBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */; };
 		FFB5F5A028DCDFFD007F98D6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */; };
 		FFB5F5A728DD0A96007F98D6 /* InstrumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5A628DD0A96007F98D6 /* InstrumentsView.swift */; };
@@ -31,7 +31,7 @@
 		FFB5F58F28DB6610007F98D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFB5F59228DB6610007F98D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFB5F59428DB6610007F98D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		FFB5F59A28DCDFB6007F98D6 /* GhostCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostCanvasView.swift; sourceTree = "<group>"; };
 		FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoardViewController.swift; sourceTree = "<group>"; };
 		FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		FFB5F5A628DD0A96007F98D6 /* InstrumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsView.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		FFB5F5AD28DD120A007F98D6 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */,
+				FFB5F59A28DCDFB6007F98D6 /* GhostCanvasView.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 				FFB5F5A028DCDFFD007F98D6 /* UIView+Extension.swift in Sources */,
 				FFB5F58728DB660F007F98D6 /* AppDelegate.swift in Sources */,
 				FFB5F59D28DCDFED007F98D6 /* DrawingBoardViewController.swift in Sources */,
-				FFB5F59B28DCDFB6007F98D6 /* CanvasView.swift in Sources */,
+				FFB5F59B28DCDFB6007F98D6 /* GhostCanvasView.swift in Sources */,
 				FFB5F58928DB660F007F98D6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
