@@ -9,31 +9,39 @@
 /* Begin PBXBuildFile section */
 		FFB5F58728DB660F007F98D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F58628DB660F007F98D6 /* AppDelegate.swift */; };
 		FFB5F58928DB660F007F98D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F58828DB660F007F98D6 /* SceneDelegate.swift */; };
-		FFB5F58B28DB660F007F98D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F58A28DB660F007F98D6 /* ViewController.swift */; };
-		FFB5F58E28DB660F007F98D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58C28DB660F007F98D6 /* Main.storyboard */; };
+		FFB5F58E28DB660F007F98D6 /* DrawingBoardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58C28DB660F007F98D6 /* DrawingBoardViewController.storyboard */; };
 		FFB5F59028DB6610007F98D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F58F28DB6610007F98D6 /* Assets.xcassets */; };
 		FFB5F59328DB6610007F98D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F59128DB6610007F98D6 /* LaunchScreen.storyboard */; };
 		FFB5F59B28DCDFB6007F98D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */; };
 		FFB5F59D28DCDFED007F98D6 /* DrawingBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */; };
 		FFB5F5A028DCDFFD007F98D6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */; };
-		FFB5F5A728DD0A96007F98D6 /* BrusheSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5A628DD0A96007F98D6 /* BrusheSelectorView.swift */; };
+		FFB5F5A728DD0A96007F98D6 /* BrushSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5A628DD0A96007F98D6 /* BrushSelectorView.swift */; };
 		FFB5F5AB28DD0ADC007F98D6 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */; };
+		FFB5F5B328DD12DB007F98D6 /* BrushSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */; };
+		FFB5F5B628DD15AC007F98D6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B528DD15AC007F98D6 /* Reusable.swift */; };
+		FFB5F5B828DD15BE007F98D6 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B728DD15BE007F98D6 /* NibLoadable.swift */; };
+		FFB5F5BA28DD15E2007F98D6 /* BrushSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F5B928DD15E2007F98D6 /* BrushSelectionCell.xib */; };
+		FFB5F5BC28DD1668007F98D6 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5BB28DD1668007F98D6 /* UICollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FFB5F58328DB660F007F98D6 /* Drawing Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drawing Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB5F58628DB660F007F98D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFB5F58828DB660F007F98D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FFB5F58A28DB660F007F98D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FFB5F58D28DB660F007F98D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FFB5F58D28DB660F007F98D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DrawingBoardViewController.storyboard; sourceTree = "<group>"; };
 		FFB5F58F28DB6610007F98D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFB5F59228DB6610007F98D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFB5F59428DB6610007F98D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBoardViewController.swift; sourceTree = "<group>"; };
 		FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		FFB5F5A628DD0A96007F98D6 /* BrusheSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrusheSelectorView.swift; sourceTree = "<group>"; };
+		FFB5F5A628DD0A96007F98D6 /* BrushSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushSelectorView.swift; sourceTree = "<group>"; };
 		FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
+		FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushSelectionCell.swift; sourceTree = "<group>"; };
+		FFB5F5B528DD15AC007F98D6 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		FFB5F5B728DD15BE007F98D6 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		FFB5F5B928DD15E2007F98D6 /* BrushSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrushSelectionCell.xib; sourceTree = "<group>"; };
+		FFB5F5BB28DD1668007F98D6 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,29 +74,27 @@
 		FFB5F58528DB660F007F98D6 /* Drawing Board */ = {
 			isa = PBXGroup;
 			children = (
-				FFB5F58F28DB6610007F98D6 /* Assets.xcassets */,
-				FFB5F59428DB6610007F98D6 /* Info.plist */,
-				FFB5F5A828DD0AC6007F98D6 /* Library */,
 				FFB5F5A228DCF1B7007F98D6 /* App */,
-				FFB5F59E28DCDFF6007F98D6 /* Extension */,
+				FFB5F5A828DD0AC6007F98D6 /* Library */,
 				FFB5F5A328DCF1C0007F98D6 /* Screens */,
 			);
 			path = "Drawing Board";
 			sourceTree = "<group>";
 		};
-		FFB5F59E28DCDFF6007F98D6 /* Extension */ = {
+		FFB5F59E28DCDFF6007F98D6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				FFB5F59F28DCDFFD007F98D6 /* UIView+Extension.swift */,
+				FFB5F5BB28DD1668007F98D6 /* UICollectionView+Extension.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FFB5F5A128DCF1AF007F98D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */,
-				FFB5F5A628DD0A96007F98D6 /* BrusheSelectorView.swift */,
+				FFB5F5AD28DD120A007F98D6 /* Canvas */,
+				FFB5F5AC28DD1201007F98D6 /* Brush Selector  */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,8 +128,7 @@
 		FFB5F5A528DD0A21007F98D6 /* Drawing Board */ = {
 			isa = PBXGroup;
 			children = (
-				FFB5F58A28DB660F007F98D6 /* ViewController.swift */,
-				FFB5F58C28DB660F007F98D6 /* Main.storyboard */,
+				FFB5F58C28DB660F007F98D6 /* DrawingBoardViewController.storyboard */,
 				FFB5F59C28DCDFED007F98D6 /* DrawingBoardViewController.swift */,
 			);
 			path = "Drawing Board";
@@ -132,8 +137,11 @@
 		FFB5F5A828DD0AC6007F98D6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				FFB5F59E28DCDFF6007F98D6 /* Extensions */,
 				FFB5F5A928DD0AD0007F98D6 /* Models */,
 				FFB5F5A128DCF1AF007F98D6 /* Views */,
+				FFB5F5B428DD1594007F98D6 /* Protocols */,
+				FFB5F5BD28DD39AB007F98D6 /* Resources */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -144,6 +152,50 @@
 				FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FFB5F5AC28DD1201007F98D6 /* Brush Selector  */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F5B028DD12CB007F98D6 /* Cell */,
+				FFB5F5A628DD0A96007F98D6 /* BrushSelectorView.swift */,
+			);
+			path = "Brush Selector ";
+			sourceTree = "<group>";
+		};
+		FFB5F5AD28DD120A007F98D6 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F59A28DCDFB6007F98D6 /* CanvasView.swift */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		FFB5F5B028DD12CB007F98D6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */,
+				FFB5F5B928DD15E2007F98D6 /* BrushSelectionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FFB5F5B428DD1594007F98D6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F5B528DD15AC007F98D6 /* Reusable.swift */,
+				FFB5F5B728DD15BE007F98D6 /* NibLoadable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FFB5F5BD28DD39AB007F98D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5F58F28DB6610007F98D6 /* Assets.xcassets */,
+				FFB5F59428DB6610007F98D6 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +257,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFB5F59328DB6610007F98D6 /* LaunchScreen.storyboard in Resources */,
+				FFB5F5BA28DD15E2007F98D6 /* BrushSelectionCell.xib in Resources */,
 				FFB5F59028DB6610007F98D6 /* Assets.xcassets in Resources */,
-				FFB5F58E28DB660F007F98D6 /* Main.storyboard in Resources */,
+				FFB5F58E28DB660F007F98D6 /* DrawingBoardViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,9 +270,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFB5F58B28DB660F007F98D6 /* ViewController.swift in Sources */,
-				FFB5F5A728DD0A96007F98D6 /* BrusheSelectorView.swift in Sources */,
+				FFB5F5B328DD12DB007F98D6 /* BrushSelectionCell.swift in Sources */,
+				FFB5F5BC28DD1668007F98D6 /* UICollectionView+Extension.swift in Sources */,
+				FFB5F5A728DD0A96007F98D6 /* BrushSelectorView.swift in Sources */,
 				FFB5F5AB28DD0ADC007F98D6 /* Brush.swift in Sources */,
+				FFB5F5B828DD15BE007F98D6 /* NibLoadable.swift in Sources */,
+				FFB5F5B628DD15AC007F98D6 /* Reusable.swift in Sources */,
 				FFB5F5A028DCDFFD007F98D6 /* UIView+Extension.swift in Sources */,
 				FFB5F58728DB660F007F98D6 /* AppDelegate.swift in Sources */,
 				FFB5F59D28DCDFED007F98D6 /* DrawingBoardViewController.swift in Sources */,
@@ -231,12 +287,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FFB5F58C28DB660F007F98D6 /* Main.storyboard */ = {
+		FFB5F58C28DB660F007F98D6 /* DrawingBoardViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FFB5F58D28DB660F007F98D6 /* Base */,
 			);
-			name = Main.storyboard;
+			name = DrawingBoardViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		FFB5F59128DB6610007F98D6 /* LaunchScreen.storyboard */ = {
@@ -373,12 +429,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JL6XT94C4X;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Drawing Board/Info.plist";
+				INFOPLIST_FILE = "Drawing Board/Library/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,12 +456,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JL6XT94C4X;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Drawing Board/Info.plist";
+				INFOPLIST_FILE = "Drawing Board/Library/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

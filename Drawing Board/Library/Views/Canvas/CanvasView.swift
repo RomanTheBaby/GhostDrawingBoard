@@ -10,9 +10,12 @@ import UIKit
 
 class CanvasView: UIView {
     
-    private var brush: Brush
     
+    // MARK: - Properties
+    
+    private(set) var brush: Brush
     private var lines: [[CGPoint]] = []
+    
     
     // MARK: - Init
     
@@ -80,7 +83,7 @@ class CanvasView: UIView {
         }
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.fillColor = nil//#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+        shapeLayer.fillColor = nil
         shapeLayer.strokeColor = brush.color.cgColor
         shapeLayer.lineWidth = brush.width
         shapeLayer.path = path.cgPath

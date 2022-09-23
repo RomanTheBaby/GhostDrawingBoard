@@ -18,9 +18,9 @@ class DrawingBoardViewController: UIViewController {
         let canvasView = CanvasView(brush: .init(color: .red, width: 5, drawDelay: 1))
         // No matter the color scheme, drawing is best on white canvas I guess?
         canvasView.backgroundColor = .white
-        canvasView.backgroundColor = view.backgroundColor
+        view.backgroundColor = .systemGray5
         
-        let brushSelectionView = BrusheSelectorView(brushes: .all) { [weak canvasView] brush in
+        let brushSelectionView = BrushSelectorView(brushes: .all) { [weak canvasView] brush in
             canvasView?.updateBrush(brush)
         }
         
@@ -30,22 +30,25 @@ class DrawingBoardViewController: UIViewController {
         [
             brushSelectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             brushSelectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            brushSelectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            brushSelectionView.bottomAnchor
+            
             brushSelectionView.heightAnchor.constraint(equalToConstant: 50)
         ].activate()
         
         canvasView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(canvasView)
         [
+            canvasView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
             canvasView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             canvasView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            canvasView.bottomAnchor.constraint(equalTo: brushSelectionView.topAnchor),
-            canvasView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            canvasView.bottomAnchor.constraint(greaterThanOrEqualTo: brushSelectionView.topAnchor, constant: -16)
         ].activate()
         
-        canvasView.layer.shadowRadius = 10
+        canvasView.layer.shadowRadius = 5
         canvasView.layer.shadowColor = UIColor.black.cgColor
         canvasView.layer.shadowOpacity = 0.8
+        canvasView.layer.cornerRadius = 8
+        canvasView.layer.masksToBounds = true
         
     }
     
