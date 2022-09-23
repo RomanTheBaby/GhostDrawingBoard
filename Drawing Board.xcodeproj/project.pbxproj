@@ -20,7 +20,6 @@
 		FFB5F5B328DD12DB007F98D6 /* BrushSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */; };
 		FFB5F5B628DD15AC007F98D6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B528DD15AC007F98D6 /* Reusable.swift */; };
 		FFB5F5B828DD15BE007F98D6 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B728DD15BE007F98D6 /* NibLoadable.swift */; };
-		FFB5F5BA28DD15E2007F98D6 /* BrushSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB5F5B928DD15E2007F98D6 /* BrushSelectionCell.xib */; };
 		FFB5F5BC28DD1668007F98D6 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5BB28DD1668007F98D6 /* UICollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushSelectionCell.swift; sourceTree = "<group>"; };
 		FFB5F5B528DD15AC007F98D6 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		FFB5F5B728DD15BE007F98D6 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		FFB5F5B928DD15E2007F98D6 /* BrushSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrushSelectionCell.xib; sourceTree = "<group>"; };
 		FFB5F5BB28DD1668007F98D6 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				FFB5F5B228DD12DA007F98D6 /* BrushSelectionCell.swift */,
-				FFB5F5B928DD15E2007F98D6 /* BrushSelectionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -257,7 +254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFB5F59328DB6610007F98D6 /* LaunchScreen.storyboard in Resources */,
-				FFB5F5BA28DD15E2007F98D6 /* BrushSelectionCell.xib in Resources */,
 				FFB5F59028DB6610007F98D6 /* Assets.xcassets in Resources */,
 				FFB5F58E28DB660F007F98D6 /* Main.storyboard in Resources */,
 			);

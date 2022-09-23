@@ -8,7 +8,17 @@
 import UIKit
 
 
-class BrushSelectorView: UIView, UICollectionViewDelegate {
+class BrushSelectorView: UIView, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        enum ListLayout {
+            static let itemsSpacing: CGFloat = 8
+            static let contentInsets = UIEdgeInsets(horizontal: 16, vertical: 4)
+        }
+    }
     
     // MARK: - Section
     
@@ -19,31 +29,24 @@ class BrushSelectorView: UIView, UICollectionViewDelegate {
     // MARK: - Private Properties
     
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = Constants.ListLayout.itemsSpacing
+        layout.sectionInset = Constants.ListLayout.contentInsets
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.allowsMultipleSelection = false
         return collectionView
     }()
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Brush> = {
-//        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Brush> { cell, indexPath, item in
-//            cell.backgroundColor = item.color
-//            cell.contentView.backgroundColor = item.color
-//        }
-        
-//        let cellRegistration = UICollectionView.CellRegistration<BrushSelectionCell, Brush> { cell, indexPath, item in
-//            cell.item = item
-//        }
-        
         let dataSource = UICollectionViewDiffableDataSource<Section, Brush>(collectionView: collectionView) { collectionView, indexPath, item in
-//            return collectionView.dequeueConfiguredReusableCell(
-//                using: cellRegistration,
-//                for: indexPath,
-//                item: item)
             let cell = collectionView.dequeueReusableCell(
                 withType: BrushSelectionCell.self,
                 forItemAt: indexPath
             )
             cell.setBrush(item)
+            
             return cell
         }
         
@@ -81,7 +84,11 @@ class BrushSelectorView: UIView, UICollectionViewDelegate {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
-        collectionView.register(cell: BrushSelectionCell.self)
+        
+        collectionView.register(
+            BrushSelectionCell.self,
+            forCellWithReuseIdentifier: BrushSelectionCell.reuseIdentifier
+        )
         
         embed(collectionView)
         
@@ -91,22 +98,6 @@ class BrushSelectorView: UIView, UICollectionViewDelegate {
            let initialBrushIndex = dataSource.indexPath(for: initiallySelectedBrush) {
             collectionView.selectItem(at: initialBrushIndex, animated: false, scrollPosition: .bottom)
         }
-    }
-    
-    private func createLayout() -> UICollectionViewLayout {
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalHeight(1),
-                                                                             heightDimension: .fractionalHeight(1)))
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .fractionalHeight(1))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
-        group.interItemSpacing = .fixed(8)
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
-        section.interGroupSpacing = 16
-        
-        return UICollectionViewCompositionalLayout(section: section)
     }
     
     private func setupInitialSnapshot() {
@@ -120,12 +111,32 @@ class BrushSelectorView: UIView, UICollectionViewDelegate {
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         guard let selectedBrush = dataSource.itemIdentifier(for: indexPath) else {
             return
         }
         
         selectorCallback?(selectedBrush)
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSide = collectionView.bounds.height - Constants.ListLayout.contentInsets.vertical
+        return CGSize.init(width: itemSide, height: itemSide)
+    }
+    
+}
+
+
+// MARK: - UIEdgeInsets Helper Extension
+
+private extension UIEdgeInsets {
+    var vertical: CGFloat {
+        top + bottom
+    }
+    
+    init(horizontal: CGFloat, vertical: CGFloat) {
+        self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
     
 }

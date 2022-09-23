@@ -21,6 +21,6 @@ extension UICollectionView {
     }
 
     func register<Cell: Reusable & NibLoadable>(cell: Cell.Type) {
-        self.register(Cell.nib, forCellWithReuseIdentifier: Cell.reuseIdentifier)
+        register(Cell.nib, forCellWithReuseIdentifier: Cell.reuseIdentifier)
     }
 }
