@@ -21,6 +21,7 @@
 		FFB5F5B628DD15AC007F98D6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B528DD15AC007F98D6 /* Reusable.swift */; };
 		FFB5F5B828DD15BE007F98D6 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5B728DD15BE007F98D6 /* NibLoadable.swift */; };
 		FFB5F5BC28DD1668007F98D6 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5BB28DD1668007F98D6 /* UICollectionView+Extension.swift */; };
+		FFB5F5C628DE6CF0007F98D6 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5F5C528DE6CEF007F98D6 /* Drawing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FFB5F5B528DD15AC007F98D6 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		FFB5F5B728DD15BE007F98D6 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		FFB5F5BB28DD1668007F98D6 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		FFB5F5C528DE6CEF007F98D6 /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				FFB5F5AA28DD0ADC007F98D6 /* Brush.swift */,
+				FFB5F5C528DE6CEF007F98D6 /* Drawing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				FFB5F5B628DD15AC007F98D6 /* Reusable.swift in Sources */,
 				FFB5F5A028DCDFFD007F98D6 /* UIView+Extension.swift in Sources */,
 				FFB5F58728DB660F007F98D6 /* AppDelegate.swift in Sources */,
+				FFB5F5C628DE6CF0007F98D6 /* Drawing.swift in Sources */,
 				FFB5F59D28DCDFED007F98D6 /* DrawingBoardViewController.swift in Sources */,
 				FFB5F59B28DCDFB6007F98D6 /* GhostCanvasView.swift in Sources */,
 				FFB5F58928DB660F007F98D6 /* SceneDelegate.swift in Sources */,

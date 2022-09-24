@@ -8,7 +8,7 @@
 import UIKit
 
 
-struct Brush: Identifiable, Hashable {
+struct Brush: Equatable, Identifiable, Hashable {
     var color: UIColor
     var width: CGFloat
     var drawDelay: CGFloat

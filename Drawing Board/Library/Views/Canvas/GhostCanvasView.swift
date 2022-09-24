@@ -15,8 +15,8 @@ class GhostCanvasView: UIView {
     // MARK: - Properties
     
     private(set) var brush: Brush
-    private var linesToDraw: [[CGPoint]] = []
     private var layers: [CALayer] = []
+    private var pendingDrawings: [Drawing] = []
     
     
     // MARK: - Init
@@ -63,7 +63,8 @@ class GhostCanvasView: UIView {
         
         let touchLocation = touch.location(in: self)
         
-        linesToDraw.append([touchLocation])
+        let newDrawing = Drawing(brush: brush, points: [touchLocation])
+        pendingDrawings.append(newDrawing)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -71,62 +72,60 @@ class GhostCanvasView: UIView {
             return
         }
         
-        guard var lastLine = linesToDraw.popLast() else {
+        guard let currentDrawing = pendingDrawings.popLast() else {
             return
         }
         
         let touchLocation = touch.location(in: self)
-
-        lastLine.append(touchLocation)
-        linesToDraw.append(lastLine)
+        
+        currentDrawing.points.append(touchLocation)
+        pendingDrawings.append(currentDrawing)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + brush.drawDelay, execute: { [weak self] in
-            self?.drawPoints(self?.linesToDraw.first ?? [])
-            self?.linesToDraw.removeFirst()
-        })
+        guard let latestDrawing = pendingDrawings.last, let touch = touches.first else {
+            return
+        }
+        
+        if latestDrawing.points.count > 1 {
+            let touchLocation = touch.location(in: self)
+            latestDrawing.points.append(touchLocation)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + latestDrawing.drawDelay) { [weak self, weak latestDrawing] in
+            guard let self = self, let latestDrawing = latestDrawing else {
+                return
+            }
+            
+            self.draw(latestDrawing)
+            
+            if let index = self.pendingDrawings.firstIndex(of: latestDrawing) {
+                self.pendingDrawings.remove(at: index)
+            }
+        }
+        
     }
     
     // MARK: - Private Methods
     
-    private func drawPoints(_ points: [CGPoint]) {
-        guard points.isEmpty == false else {
+    private func draw(_ drawing: Drawing) {
+        guard drawing.points.isEmpty == false else {
             return
-        }
-        
-        let path: UIBezierPath
-        
-        if points.count == 1 {
-            let radius = brush.width
-            let point = points[0]
-            let rect = CGRect(x: point.x - (radius / 2), y: point.y - (radius / 2), width: radius, height: radius)
-            path = UIBezierPath(ovalIn: rect)
-        } else {
-            path = UIBezierPath()
-            for (index, point) in points.enumerated() {
-                if index == 0 {
-                    path.move(to: point)
-                    continue
-                }
-
-                path.addLine(to: point)
-            }
         }
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = nil
-        shapeLayer.strokeColor = brush.color.cgColor
-        shapeLayer.lineWidth = brush.width
-        shapeLayer.path = path.cgPath
+        shapeLayer.strokeColor = drawing.brush.color.cgColor
+        shapeLayer.lineWidth = drawing.brush.width
+        shapeLayer.path = drawing.path.cgPath
         
         layer.addSublayer(shapeLayer)
         layers.append(shapeLayer)
         
-        if points.count > 1 {
+        if drawing.points.count > 1 && drawing.brush.drawTime > 0 {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.fromValue = 0
-            animation.duration = brush.drawTime
+            animation.duration = drawing.brush.drawTime
             shapeLayer.add(animation, forKey: "drawing_animation")
         }
     }
