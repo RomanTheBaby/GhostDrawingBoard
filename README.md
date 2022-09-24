@@ -19,18 +19,18 @@ drawing on the screen at same exact pattern as you slide your finger.
 
 ### Brush Size
 
-THere were no mentions of what size of the bruhs for each color should be, so I hardcoded them all differnt sizes, just to make sure they visually distinct.
+There were no mentions of what size of the brush for each color should be, so I hardcoded them all to different sizes, just to make sure they visually distinct.
 
 ### Single Taps
 As of now, if user just taps on the screen once app will draw a dot in that place. This is similar with other drawing apps behavor.
 
 ### Eraser
-Eraser currently is erasing only drawing that are either already on the screen completely or currently being drawn. Why would you erase stuff you don't see?
-Currently user can schedule multiple erase operations at once, they will be executed after configurable delay, using is implemented via `DispatchQueue.main.asyncAfter` not `BlockOperation`.
-Undo operation is instant, as undo last was not in requirement, but it allows for some fast erasing and easier testing.
+Eraser currently is erasing only drawing that are either already on visually visible on the screen.
+Currently user can schedule multiple erase operations at once, they will be executed after configurable delay which is implemented via `DispatchQueue.main.asyncAfter` not `BlockOperation`.
+Undo operation is instant, as undo last was not in requirement, but it allows for some fast erasing and testing.
 
 ### UI artifact when drawing multiple lines
-When user is drawing really fast, by randomly swiping across the screen, then some lines may start drawing befor the previous one is finished. THIS IS NOT A BUG, IT'S A FEATURE!! It is appearing because of delay of drawing and the drawing time itself.
+When user is drawing really fast, by randomly swiping across the screen, then some lines may start drawing before the previous one is finished. **THIS IS NOT A BUG, IT'S A FEATURE**!! It is appearing because of delay of drawing and the drawing time itself.
 
 ### Device Orientations
 Currently only portait device orientation is supported. The reason for this is the delayed drawing, for it to work corrently we need to make sure that when delayed drawing happens the canvas is the same size as it was when user was actually drawing.
