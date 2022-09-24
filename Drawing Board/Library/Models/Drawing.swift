@@ -2,7 +2,7 @@
 //  Drawing.swift
 //  Drawing Board
 //
-//  Created by Alina Biesiedina on 2022-09-23.
+//  Created by Roman on 2022-09-23.
 //
 
 import UIKit

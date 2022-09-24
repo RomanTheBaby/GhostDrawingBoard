@@ -2,7 +2,7 @@
 //  Reusable.swift
 //  Drawing Board
 //
-//  Created by Alina Biesiedina on 2022-09-22.
+//  Created by Roman on 2022-09-22.
 //
 
 import Foundation

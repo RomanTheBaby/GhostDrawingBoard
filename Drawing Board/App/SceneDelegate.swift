@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Drawing Board
 //
-//  Created by Alina Biesiedina on 2022-09-21.
+//  Created by Roman on 2022-09-21.
 //
 
 import UIKit

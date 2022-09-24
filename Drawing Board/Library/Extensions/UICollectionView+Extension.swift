@@ -2,14 +2,11 @@
 //  UICollectionView+Extension.swift
 //  Drawing Board
 //
-//  Created by Alina Biesiedina on 2022-09-22.
+//  Created by Roman on 2022-09-22.
 //
 
 import UIKit
 
-
-protocol ReusableCell: UICollectionViewCell, Reusable {
-}
 
 extension UICollectionView {
     func dequeueReusableCell<Cell: Reusable>(withType cellType: Cell.Type, forItemAt indexPath: IndexPath) -> Cell {
@@ -18,9 +15,5 @@ extension UICollectionView {
         }
 
         return cell
-    }
-
-    func register<Cell: Reusable & NibLoadable>(cell: Cell.Type) {
-        register(Cell.nib, forCellWithReuseIdentifier: Cell.reuseIdentifier)
     }
 }
