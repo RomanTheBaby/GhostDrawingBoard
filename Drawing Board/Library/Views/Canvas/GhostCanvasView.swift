@@ -11,18 +11,29 @@ import UIKit
 /// This canvas view supports only drawing with delay
 class GhostCanvasView: UIView {
     
+    private enum Contants {
+        enum Eraser {
+            static let delay: CGFloat = 2
+        }
+    }
     
     // MARK: - Properties
     
     private(set) var brush: Brush
-    private var layers: [CALayer] = []
+    private var drawingLayers: [CALayer] = []
     private var pendingDrawings: [Drawing] = []
+    /// Layers that are scheduled to be deleted
+    private var removableLayers: [[CALayer]] = []
+
+    private let eraserDelay: CGFloat
     
     
     // MARK: - Init
     
-    init(brush: Brush) {
+    init(brush: Brush, eraserDelay: CGFloat = Contants.Eraser.delay) {
         self.brush = brush
+        self.eraserDelay = eraserDelay
+        
         super.init(frame: .zero)
     }
     
@@ -38,15 +49,24 @@ class GhostCanvasView: UIView {
     }
     
     func clear() {
-        layers.forEach { layer in
-            layer.removeFromSuperlayer()
+        guard drawingLayers.isEmpty == false else {
+            return
         }
         
-        layers = []
+        removableLayers.append(drawingLayers)
+        drawingLayers = []
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + eraserDelay) { [weak self] in
+            self?.removableLayers.first?.forEach { layer in
+                layer.removeFromSuperlayer()
+            }
+            
+            self?.removableLayers.removeFirst()
+        }
     }
     
     func undoLast() {
-        guard let lastLayer = layers.popLast() else {
+        guard let lastLayer = drawingLayers.popLast() else {
             return
         }
         
@@ -120,7 +140,7 @@ class GhostCanvasView: UIView {
         shapeLayer.path = drawing.path.cgPath
         
         layer.addSublayer(shapeLayer)
-        layers.append(shapeLayer)
+        drawingLayers.append(shapeLayer)
         
         if drawing.points.count > 1 && drawing.brush.drawTime > 0 {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
