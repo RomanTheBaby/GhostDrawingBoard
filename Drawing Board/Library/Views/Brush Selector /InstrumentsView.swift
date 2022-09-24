@@ -46,6 +46,8 @@ class InstrumentsView: UIView, UICollectionViewDelegate, UICollectionViewDelegat
         layout.sectionInset = Constants.BrushListLayout.contentInsets
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceHorizontal = false
         collectionView.allowsMultipleSelection = false
         return collectionView
     }()
