@@ -34,4 +34,4 @@ When user is drawing really fast, by randomly swiping across the screen, then so
 
 ### Device Orientations
 Currently only portait device orientation is supported. The reason for this is the delayed drawing, for it to work corrently we need to make sure that when delayed drawing happens the canvas is the same size as it was when user was actually drawing.
-For the same reason I checked requires full screen for iPad, to make sure that user cannot even use app in split-screen.
+For the same reason on iPad I made sure that user cannot even use app in split-screen.
