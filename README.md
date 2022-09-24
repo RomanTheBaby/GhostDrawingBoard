@@ -3,7 +3,9 @@
 Anything which you are drawing should appear on screen after certain seconds. For the case of:
 
 • Red 1 second.
+
 • Blue 3 seconds.
+
 • Green 5 seconds.
 
 Eraser works on with the 2 seconds delay too.
