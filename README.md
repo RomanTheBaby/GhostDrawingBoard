@@ -14,9 +14,6 @@ example If you picked red and started drawing, there wouldn’t be any drawing o
 unless you would end sliding on the screen and lift the finger. After 1 second, it will start
 drawing on the screen at same exact pattern as you slide your finger.
 
-# Assumption5
-
-
 ### Brush Size
 
 There were no mentions of what size of the brush for each color should be, so I hardcoded them all to different sizes, just to make sure they visually distinct.
@@ -35,3 +32,6 @@ When user is drawing really fast, by randomly swiping across the screen, then so
 ### Device Orientations
 Currently only portait device orientation is supported. The reason for this is the delayed drawing, for it to work corrently we need to make sure that when delayed drawing happens the canvas is the same size as it was when user was actually drawing.
 For the same reason on iPad I made sure that user cannot even use app in split-screen.
+
+### Server integration
+Not done at this point
